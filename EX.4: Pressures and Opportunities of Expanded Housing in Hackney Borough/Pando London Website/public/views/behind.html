@@ -1,0 +1,36 @@
+<style>
+.apiDeets{
+  text-align: left;
+}
+#apiEndpoints{
+  height:75%;
+  width:40%;
+  float:left;
+  margin: 30px 0px 0px 125px
+}
+#toolsUsed{
+  height:75%;
+  width:40%;
+  float:left;
+  margin: 30px 0px 0px 50px
+}
+
+</style>
+
+<div id="apiEndpoints">
+  <h2 class="apiDeets">API ENDPOINTS</h2>
+
+  <div class="apiDeets" ng-repeat="api in apis">
+
+  <h3><b>{{api.endpoint}}</b></h3>
+  <p><i>{{api.description}}</i></p>
+
+  </div>
+</div>
+
+<div id="toolsUsed">
+  <h2 class="apiDeets">TOOLS USED</h2>
+  <div ng-repeat="tool in tools">
+    <img src='{{tool.imagePath}}' style="width:94px; height:94px; float:left"/>
+  </div>
+</div>

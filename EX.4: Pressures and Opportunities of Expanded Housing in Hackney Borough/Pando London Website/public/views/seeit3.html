@@ -1,0 +1,77 @@
+<!-- home.html -->
+
+<style>
+
+.map-text{
+  text-align: center;
+  position:relative;
+  margin:10px;
+  color:black;
+}
+
+.floating-map-box{
+  background-color:white;
+  background-image: './img/background1';
+  height:200px;
+  width:200px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+  color: black;
+  padding: 85px 0px;
+  text-align: center;
+  text-decoration: none;
+float:left;
+  font-size: 24px;
+  margin: 4px 2px;
+}
+
+
+.info-container{
+  position:absolute;
+  float:left;
+  width:500px;
+  height:75%;
+  margin:65px 0px 0px 50px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+}
+.map-container{
+    position:absolute;
+    float:left;
+    height:75%;
+    width:600px;
+    padding:0px 0px 0px 0px;
+    margin:65px 0px 0px 610px;
+    border: black;
+    border-width:1px;
+    border-style:solid;
+}
+.container{
+  position:absolute;
+  height:100%;
+  width:100%
+}
+
+</style>
+
+<div class="container">
+
+  <div class="info-container">
+      <p> Instructions for using Map </p>
+  </div>
+
+<div class="map-container">
+
+  <div class="floating-map-box">
+    <a href="/gallery"><b class="map-text" >Hackney</b></a>
+  </div>
+
+
+  <div class="floating-map-box" ng-click="/">
+    <a href="/insertData"><b class="map-text">Make Your Own Map</b></a>
+  </div>
+
+</div>
+</div>

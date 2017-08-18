@@ -1,0 +1,108 @@
+<!-- home.html -->
+
+<style>
+
+.floating-box-text{
+  text-align: center;
+  position:relative;
+  margin:10px
+}
+
+.floating-box-white{
+  background-color:white;
+  height:200px;
+  width:200px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+  color: black;
+  padding: 85px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+}
+.floating-box-black{
+  background-color:black;
+  height:200px;
+  width:200px;
+  border: white;
+  color: white;
+  padding: 85px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 2px 2px 15px 45px;
+}
+.floating-box-green{
+  background-color:green;
+  height:55px;
+  width:410px;
+  border: white;
+  color: white;
+  padding: 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 15px 2px 2px 45px;
+}
+
+.info-container{
+  position:absolute;
+  display:inline-block;
+  width:400px;
+  height:75%;
+  margin:65px 0px 0px 100px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+}
+.button-container{
+    position:absolute;
+    display:inline-block;
+    height:450px;
+    width:500px;
+    padding:0px 0px 0px 0px;
+    margin:65px 0px 0px 625px;
+    border: black;
+    border-width:1px;
+    border-style:solid;
+}
+.container{
+  position:absolute;
+  height:100%;
+  width:100%
+}
+
+</style>
+
+<div class="container">
+
+  <div class="info-container" ng-include="currentTab">
+
+  </div>
+
+<div class="button-container">
+  <div class="floating-box-black" ng-click="onClickTab(tabs[0])">
+    <b class="floating-box-text" >Pressure</b>
+  </div>
+
+
+  <div class="floating-box-white" ng-click="onClickTab(tabs[1])">
+    <b class="floating-box-text">Opportunity</b>
+  </div>
+
+  <div class="floating-box-text">
+    <i>We built this tool for planners to visualize the
+      pressures and opportunities associated with housing intensification in London.</i>
+  </div>
+
+  <!-- green bar -->
+  <div class="floating-box-green">
+    <a href="/seeit" style="color:white"><b>See It</b></a>
+  </div>
+</div>
+</div>

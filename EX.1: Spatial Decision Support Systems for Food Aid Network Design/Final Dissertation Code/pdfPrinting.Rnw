@@ -1,0 +1,127 @@
+\documentclass[1pt]{article}
+
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage[margin=1in]{geometry}
+ \geometry{
+ a4paper,
+ total={200mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+\begin{landscape}
+
+<<echo=FALSE, results=tex, message=FALSE>>=
+library(xtable)
+
+
+Index1_FBs <- read.csv("./DataPres/Index_1_Food_Bank_Sites.csv")[,-1]
+
+
+
+Index6_FBs <- read.csv("./DataPres/Index_6_Food_Bank_Sites.csv")[,-1]
+xt = xtable(Index6_FBs)
+
+
+Index43_FBs <- read.csv("./DataPres/Index_43_Food_Bank_Sites.csv")[,-1]
+xt = xtable(Index43_FBs)
+
+
+Index48_FBs <- read.csv("./DataPres/Index_48_Food_Bank_Sites.csv")[,-1]
+xt = xtable(Index48_FBs)
+
+
+Index16_FBs <- read.csv("./DataPres/Index_16_Food_Bank_Sites.csv")[,-1]
+xt = xtable(Index16_FBs)
+
+
+Brent1_FBs <- read.csv("./DataPres/Brent_Food_Bank_Sites.csv")[,-1]
+Brent1_LSOAs <- read.csv("./DataPres/Brent_LSOAs.csv")[,-1]
+
+Brent2_FBs <- read.csv("./DataPres/Brent_Food_Bank_Sites2.csv")[,-1]
+Brent2_LSOAs <- read.csv("./DataPres/Brent_LSOAs2.csv")[,-1]
+
+xt = xtable(Brent2_LSOAs)
+
+
+
+Brent3_FBs <- read.csv("./DataPres/Brent_Food_Bank_Sites3.csv")[,-1]
+Brent3_LSOAs <- read.csv("./DataPres/Brent_LSOAs3.csv")[,-1]
+xt = xtable(Brent3_LSOAs)
+
+
+Index1_2k_FBs <- read.csv("./DataPres/Index_1_Food_Bank_Sites_2k.csv")[,-1]
+
+
+Index6_2k_FBs <- read.csv("./DataPres/Index_6_Food_Bank_Sites_2k.csv")[,-1]
+
+
+Index43_2k_FBs <- read.csv("./DataPres/Index_43_Food_Bank_Sites_2k.csv")[,-1]
+
+
+Index48_2k_FBs <- read.csv("./DataPres/Index_48_Food_Bank_Sites_2k.csv")[,-1]
+
+
+Index16_2k_FBs <- read.csv("./DataPres/Index_16_Food_Bank_Sites_2k.csv")[,-1]
+
+
+Index16_Scen1_FBs <- read.csv("./DataPres/Index_16_Scen1_Food_Bank_Sites.csv")[,-1]
+
+
+Index16_Scen2_FBs <- read.csv("./DataPres/Index_16_Scen2_Food_Bank_Sites.csv")[,-1]
+
+Index16_Scen3_FBs <- read.csv("./DataPres/Index_16_Scen3_Food_Bank_Sites.csv")[,-1]
+
+
+Index16_Scen4_FBs <- read.csv("./DataPres/Index_16_Scen4_Food_Bank_Sites.csv")[,-1]
+
+
+HaringeyComp_FBs <- read.csv("./DataPres/haringeyFBs.csv")[,-1]
+
+
+HaringeyComp_LSOAs <- read.csv("./DataPres/haringeyLSOAs.csv")[,-1]
+
+
+HackneyComp_FBs <- read.csv("./DataPres/hackneyFBs.csv")[,-1]
+
+
+HackneyComp_LSOAs <- read.csv("./DataPres/hackneyLSOAs.csv")[,-1]
+
+
+IslingtonComp_FBs <- read.csv("./DataPres/islingtonFBs.csv")[,-1]
+
+IslingtonComp_LSOAs <- read.csv("./DataPres/islingtonLSOAs.csv")[,-1]
+
+CamdenComp_FBs <- read.csv("./DataPres/camdenFBs.csv")[,-1]
+
+CamdenComp_LSOAs <- read.csv("./DataPres/camdenLSOAs.csv")[,-1]
+
+BarnetComp_FBs <- read.csv("./DataPres/barnetFBs.csv")[,-1]
+
+
+BarnetComp_LSOAs <- read.csv("./DataPres/barnetLSOAs.csv")[,-1]
+
+
+EnfieldComp_FBs <- read.csv("./DataPres/enfieldFBs.csv")[,-1]
+
+
+EnfieldComp_LSOAs <- read.csv("./DataPres/enfieldLSOAs.csv")[,-1]
+
+
+LondonComp_FBs <- read.csv("./DataPres/londonFBs.csv")[,-1]
+xt = xtable(LondonComp_FBs)
+print(xt,  tabular.environment="longtable", size="\\fontsize{7pt}{10pt}\\selectfont", table.placement = "", floating=FALSE)
+
+LondonComp_LSOAs <- read.csv("./DataPres/londonLSOAs.csv")[,-1]
+
+@
+
+\end{landscape}
+
+\end{document}

@@ -1,0 +1,149 @@
+<!-- home.html -->
+
+<style>
+
+.map-text{
+  text-align: center;
+  position:relative;
+  margin:10px;
+  color:black;
+}
+
+.info-container{
+  position:absolute;
+  float:left;
+  width:500px;
+  height:75%;
+  margin:65px 0px 0px 50px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+  padding:5px 3px 0px 15px;
+  background-color: #EDF1F2;
+  border:yellow;
+
+}
+.map-container{
+    position:absolute;
+    float:left;
+    height:75%;
+    width:600px;
+    padding:0px 0px 0px 0px;
+    margin:65px 0px 0px 610px;
+    background-color: #EDF1F2;
+
+}
+
+
+.floating-map-box{
+  background-color:white;
+  height:200px;
+  width:200px;
+  color: black;
+  padding: 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  float:left;
+  font-size: 24px;
+  margin: 20px 20px;
+
+}
+
+
+.container{
+  position:absolute;
+  height:100%;
+  width:100%
+}
+
+.scroll {
+    background-color: #EDF1F2;
+    width:500px;
+    height:100%;
+    overflow: scroll;
+}
+
+.background{
+  height:100%;
+  width:100%;
+  position:fixed;
+
+}
+
+</style>
+
+
+
+<img class ="background" src='./img/background.jpg'/>
+
+<!--
+<div class="container" >
+-->
+
+
+  <div class="info-container">
+<div class="scroll">
+      <h2> Instructions for using Map</h2>
+
+      <h3>
+The interactive maps indicate site locations of all consented housing applications from 2012 to 2015, delivering over 5 units. Sites delivering larger number of residential units are represented with specific symbols.
+The map also includes locations of all local services such as schools, GPs and supermarkets.<br><br>
+
+
+Click on the housing symbols to find out more about each application site and the closest local services to each application.<br><br>
+
+
+Click on the services to find out about the pressure on each service by emerging applications. The routes represent the five housing applications that are most likely to put pressure on each individual service.<br><br>
+
+
+Areas of high housing intensification are highlighted as clusters. Click on each cluster to find out more about their cumulative impact in terms of housing numbers and aggregated statistics.<br><br>
+
+
+Symbols : Local services<br><br>
+
+<img src="./img/Services_svg/School_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;Schools including primary, secondary, private, independent and special needs schools
+<br><br><img src="./img/Services_svg/Supermarket_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;Supermarkets all major retailers and local stores
+<br><br><img src="./img/Services_svg/GP_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;   Primary care General Practioners
+
+<br>
+<br>
+Routes:
+Accessibility to services based on  walking distances<br><br>
+
+ ¼ mile =400m =approx. 5 min walking  distance<br>
+ ½ mile =800m =approx. 10 min walking distance<br>
+1 mile = 1600m =approx. 20 min walking distance<br>
+
+Symbols : Planning applications, new developments delivering<br>
+
+<br><br><img src="./img/Application_svg/HousApp_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;5 to 39 residential units
+<br><br><img src="./img/Application_svg/HousAppx2_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;40 and 200 residential units
+<br><br><img src="./img/Application_svg/HousAppx3_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;200 and 400 residential units
+<br><br><img src="./img/Application_svg/HousAppx4_128X128.svg" style="width:30px;height:30px;">&nbsp;&nbsp;above 400 residential units<br><br>
+
+
+
+ 1 unit =approx. household size (2.47 people)<br>
+ 40 units =approx. 100 people<br>
+ 200 units =approx. 500 people<br>
+ 400 units =approx. 1000 people<br><br>
+
+<img src="./img/Application_svg/CP.svg" style="width:30px;height:30px;">&nbsp;&nbsp;Areas of high intensification<br>
+Delivering over 40 units =approx. 100 people</h3>
+  </div></div>
+
+<div class="map-container">
+
+  <div class="floating-map-box" ng-click="onClickTab(tabs[0])">
+    <a href="/gallery"><img src="./img/SEE/hackney_image.png" style="width:200px;height:200px;"/></a>
+  </div>
+
+
+  <div class="floating-map-box" ng-click="onClickTab(tabs[1])">
+    <a href="/insertData"><img src="./img/SEE/make-your-own.png" style="width:200px;height:200px;"/></a>
+  </div>
+
+</div>
+</body>
+
+</div>

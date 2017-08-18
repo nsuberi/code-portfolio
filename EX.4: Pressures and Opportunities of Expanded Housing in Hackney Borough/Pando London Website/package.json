@@ -1,0 +1,29 @@
+{
+  "name": "mapApp",
+  "version": "1.0.0",
+  "description": "Spatial Data Project",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "body-parser": "~1.4.2",
+    "method-override": "~2.0.2",
+    "https": "~1.0.0",
+    "http": "0.0.0",
+    "knex": "~0.11.1",
+    "async": "~2.0.0-rc.4",
+    "csv": "~0.4.6",
+    "querystring": "~0.2.0",
+    "bookshelf": "~0.9.5"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
+}

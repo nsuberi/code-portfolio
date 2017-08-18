@@ -1,0 +1,13 @@
+<style>
+.wordlist{
+  margin: 50px 50px 
+}
+</style>
+
+
+<div class="wordlist" ng-repeat="letter in glossary">
+  <p><h2>{{letter.letter}}</h2></p>
+  <div ng-repeat="word in letter.words">
+    <p><b>{{word.word}}:</b> <i>{{word.definition}}</i></p>
+  </div>
+</div>

@@ -1,0 +1,260 @@
+<!-- public/views/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+
+    <title>Starter Node and Angular</title>
+    <!-- CSS -->
+  <!--  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/foundation/5.0.0/css/foundation.min.css"> -->
+    <link rel='stylesheet' id='font-css'  href='./css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-css'  href='http://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-css'  href='./css/nv.d3.css' type='text/css' media='all' />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/flickity.css" rel="stylesheet" >
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/queries.css" rel="stylesheet">
+<!--    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- Google Maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ9rjKveRGqRu-UVyP9jhtDHAC8YWXWAw&libraries=visualization"> </script>
+    <!--<script src="./js/googleMapsScripts.js"></script>-->
+
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/angular/angular.min.js"></script>
+    <script src="./libs/angular-route/angular-route.min.js"></script>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js'></script>
+    <script src="./js/clustering/clustering.js"></script>
+    <script type='text/javascript' src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.3/nv.d3.min.js'></script>
+    <script src='./js/angular-nvd3.min.js'></script>
+    <script src='./js/angularjs-nvd3-directives.min.js' chatset="utf-8"></script>
+  <!--  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script> -->
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="./js/controllers/DataCtrl.js"></script>
+    <script src="./js/services/DataServices.js"></script>
+    <script src="./js/controllers/GalleryCtrl.js"></script>
+    <script src="./js/services/GalleryService.js"></script>
+
+    <script src="./js/controllers/HomeCtrl.js"></script>
+    <script src="./js/controllers/BehindCtrl.js"></script>
+    <script src="./js/controllers/GlossaryCtrl.js"></script>
+    <script src="./js/controllers/SeeCtrl.js"></script>
+
+    <script src="./js/papaparse.min.js"></script>
+    <script src="./appRoutes.js"></script>
+    <script src="./app.js"></script>
+    <script src="./js/directives/angular-pageslide-directive.js"></script>
+    <script type='text/javascript' src='./js/mapStyle.js'></script>
+    <script src="./js/services/gservice.js"></script>
+
+
+
+</head>
+
+<body ng-app="mapApp" ng-controller="DataController" >
+
+  <!-- Home Templates -->
+        <script type="text/ng-template" id="pressureTab.html">
+          Housing intensification means increasing the density of housing within existing neighbourhoods by building more housing.  New housing helps to provide more choice of housing within an area, helps to create compact communities as well as provides monetary contributions towards building and maintaining public services and infrastructure. <br><br>
+
+          However, in the case of London Boroughs, new housing is likely to exert pressure on existing services on one hand and provide much needed affordable housing on the other.<br><br>
+
+          Our visualisation gives you further insight on these two issues. The interactive visualisation is for local governments, developers, local communities, or anyone who is interested in understanding<br><br>
+
+          1.      How many of the existing services are within walking distances to these emerging neighbourhoods?<br><br>
+          2.      Which of these new developments are likely to exert more pressure on existing services?
+
+        </script>
+
+        <script type="text/ng-template" id="opportunityTab.html">
+          Housing intensification means increasing the density of housing within existing neighbourhoods by building more housing.  New housing helps to provide more choice of housing within an area, helps to create compact communities as well as provides monetary contributions towards building and maintaining public services and infrastructure. <br><br>
+
+          However, in the case of London Boroughs, new housing is likely to exert pressure on existing services on one hand and provide much needed affordable housing on the other.<br><br>
+
+          Our visualisation gives you further insight on these two issues. The interactive visualisation is for local governments, developers, local communities, or anyone who is interested in understanding<br><br>
+
+          1.      Where are new housing developments coming forward within existing neighbourhoods?<br><br>
+          2.      How much affordable housing is being delivered by new developments?
+
+        </script>
+
+
+<!-- Pageslide Templates -->
+<!-- Header -->
+      <script type="text/ng-template" id="header.html">
+        <div ng-if="selectedType === 'Application'">
+          <h2 ng-mouseover="highlightMarker(selectedPoint, selectedType, true)" ng-mouseleave="revertOpacity(selectedPoint, selectedType, true)">
+             <b style ="font-size:25px">Housing Application</b></h2>
+        </div>
+        <div ng-if="selectedType === 'School'">
+          <h2 ng-mouseover="highlightMarker(selectedPoint, selectedType, true)" ng-mouseleave="revertOpacity(selectedPoint, selectedType, true)">
+             <b style ="font-size:25px">School</b> </h2>
+        </div>
+        <div ng-if="selectedType === 'Supermarket'">
+          <h2 ng-mouseover="highlightMarker(selectedPoint, selectedType, true)" ng-mouseleave="revertOpacity(selectedPoint, selectedType, true)">
+             <b style ="font-size:25px">Supermarket</b> </h2>
+        </div>
+        <div ng-if="selectedType === 'GP'">
+          <h2 ng-mouseover="highlightMarker(selectedPoint, selectedType, true)" ng-mouseleave="revertOpacity(selectedPoint, selectedType, true)">
+             <b style ="font-size:25px">General Practice</b> </h2>
+        </div>
+        <div ng-if="selectedType === 'Cluster'">
+          <h2 ng-mouseover="highlightMarker(selectedCluster, selectedType, true)" ng-mouseleave="revertOpacity(selectedCluster, selectedType, true)">
+             <b style ="font-size:25px">Cluster</b> </h2>
+        </div>
+      </script>
+
+<!-- Service Info Tab -->
+        <script type="text/ng-template" id="serviceInfoTab.html">
+
+            <canvas id="line" class="chart chart-line" chart-data="chartData"
+              chart-labels="chartLabels" chart-legend="true" chart-series="chartSeries"
+              chart-colours ="chartColors" >
+            </canvas>
+
+            <div>
+              <p ng-mouseover="highlightMarker(selectedPoint, selectedType, true)" ng-mouseleave="revertOpacity(selectedPoint, selectedType, true)">
+                 Site Pressure: <b style ="font-size:25px">{{selectedPoint.pressure}}</b> </p>
+            </div>
+
+<!--
+            <div ng-mouseover="highlightMarker(point, selectedType, false)" ng-mouseleave="revertOpacity(point, selectedType, false)">
+              Pressure from this site: {{point.weight}},   Distance: {{point.dist}} meters</div>
+
+            <accordion-group header="{{group.title}}" ng-repeat="group in groups">
+              {{group.context}}
+            </accordion-group>
+
+            <accordion-group header="Nearby {{type}}s" ng-repeat="(type,set) in nearbyPoints">
+              <p>Nearby {{type}}s</p>
+              <div ng-repeat="point in set">
+                <div ng-mouseover="highlightMarker(point, selectedType, false)" ng-mouseleave="revertOpacity(point, selectedType, false)">
+                  Pressure from this site: {{point.weight}},   Distance: {{point.dist}} meters</div>
+              </div>
+            </accordion-group>
+-->
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default" ng-repeat="(type,set) in nearbyPoints">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion">Nearby {{type}}s</a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse in">
+        <div ng-repeat="point in set" style="padding:5px">
+          <div ng-mouseover="highlightMarker(point, selectedType, false)" ng-mouseleave="revertOpacity(point, selectedType, false)">
+            Pressure from this site: {{point.weight}},   Distance: {{point.dist}} m</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<a ng-click="toggle()" class="btn btn-info" >Close</a>
+        </script>
+
+
+<!-- Site Info Tab -->
+        <script type="text/ng-template" id="siteInfoTab.html">
+
+          <div ng-if="selectedType === 'Application'">
+            <p> Total Residential Units: <b style ="font-size:25px"> {{selectedPoint.Total_Residential_Units}}</b></p>
+            <p> Total Affordable Units: <b style ="font-size:25px"> {{selectedPoint.Total_Aff_Units}} </b></p>
+            <p> Permission Status: <b style ="font-size:20px"> {{selectedPoint.Permission_Status}}</b></p>
+            <!-- Scatter plot about application data -->
+
+            <br/>
+
+            <nvd3 options="scatterOptions" data = "scatterData">
+             </nvd3>
+          </div>
+
+
+          <div ng-if="selectedType === 'Cluster'">
+            <!-- Scatter plot about application data -->
+            <nvd3 options="scatterOptions" data = "scatterData">
+             </nvd3>
+
+             <br/>
+
+
+             <!-- Cluster Statistics -->
+             <div ng-mouseover="highlightMarker(selectedCluster, selectedType, true)" ng-mouseleave="revertOpacity(selectedCluster, selectedType, true)">
+               <p>Total Affordable<b style ="font-size:25px"> {{affordableInCluster}}</b> / Total Residential<b style ="font-size:25px"> {{residentialInCluster}}</b><p>
+               <p>Percent Affordable<b style ="font-size:15px"> {{affordableInClusterPer}}</b></p>
+
+               <p>Total Complete:<b style ="font-size:25px"> {{completedInCluster}}</b> / Total Submitted<b style ="font-size:25px"> {{submittedInCluster}}</b><p>
+               <p>Percent Complete:<b style ="font-size:15px"> {{completedInClusterPer}}</b></p>
+            </div>
+             <br/>
+
+             <div class="panel panel-default">
+               <div class="panel-heading">
+                 <h4 class="panel-title">
+                   <a data-toggle="collapse" data-parent="#accordion">Properties in Cluster</a>
+                 </h4>
+               </div>
+               <div class="panel-collapse collapse in">
+                 <div ng-repeat="point in selectedCluster.getProperty('points')" style="padding:5px">
+                   <div ng-mouseover="highlightMarker(point, selectedType, false)" ng-mouseleave="revertOpacity(point, selectedType, false)">
+                     Total Residential Units: {{point.Total_Residential_Units}},  Affordable Units: {{point.Total_Aff_Units}}
+                   <br/> Status: {{point.Permission_Status}}</div>
+                 </div>
+               </div>
+             </div>
+
+          </div>
+          <div ng-if="selectedType === 'School'">
+            <p> Name: <b style ="font-size:25px"> {{ selectedPoint.Name }}</b> </p>
+            <p> Type: <b style ="font-size:25px"> {{ selectedPoint.Type }}</b> </p>
+            <p> Age Group: <b style ="font-size:25px"> {{ selectedPoint.Age_Group }}</b> </p>
+          </div>
+          <div ng-if="selectedType === 'Supermarket'">
+            <p> Retailer: <b style ="font-size:25px"> {{ selectedPoint.Retailer }}</b> </p>
+          </div>
+          <div ng-if="selectedType === 'GP'">
+            <p> Ward Name: <b style ="font-size:25px"> {{ selectedPoint.Ward_Name }}</b> </p>
+            <p> Number of GPs: <b style ="font-size:25px"> {{ selectedPoint.GPs }}</b> </p>
+          </div>
+
+          <a ng-click="toggle()" class="btn btn-info" >Close</a>
+        </script>
+
+  <div>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Pressure and Opportunity of</a>
+            <img height ='50px' width="50px" style="margin-top:8px" src="./img/Application_svg/HousAppx4_128X128.svg"/>
+        </div>
+
+        <ul class="nav navbar-nav">
+      <li><a href="/about">&bull;  about us</a></li>
+      <li><a href="/glossary">&bull;  glossary</a></li>
+      <li><a href="/behind">&bull;  behind the scenes</a></li>
+      <li><a href="/seeit">&bull;  see it</a></li>
+        </ul>
+    </nav>
+  </div>
+
+    <div class="container">
+
+        <!-- ANGULAR DYNAMIC CONTENT -->
+        <div ng-view class="container"></div>
+
+    </div>
+
+
+</body>
+
+</html>

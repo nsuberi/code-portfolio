@@ -1,0 +1,114 @@
+<style>
+.floating-box-text{
+  text-align: center;
+  position:relative;
+  margin:10px
+}
+
+.floating-box-white{
+  background-color:white;
+  height:200px;
+  width:200px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+  color: black;
+  padding: 85px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+}
+.floating-box-black{
+  background-color:black;
+  height:200px;
+  width:200px;
+  border: white;
+  color: white;
+  padding: 85px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 2px 2px 15px 45px;
+}
+.floating-box-green{
+  background-color:green;
+  height:55px;
+  width:410px;
+  border: white;
+  color: white;
+  padding: 10px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 15px 2px 2px 45px;
+}
+
+.info-container{
+  position:absolute;
+  display:inline-block;
+  width:400px;
+  height:75%;
+  margin:65px 0px 0px 100px;
+  border: black;
+  border-width:1px;
+  border-style:solid;
+}
+.button-container{
+    position:absolute;
+    display:inline-block;
+    height:450px;
+    width:500px;
+    padding:0px 0px 0px 0px;
+    margin:65px 0px 0px 625px;
+    border: black;
+    border-width:1px;
+    border-style:solid;
+}
+.container{
+  position:absolute;
+  height:100%;
+  width:100%
+}
+</style>
+
+
+<div class="jumbotron text-center">
+	<h1>Insert Data for your map:</h1>
+</div>
+
+	<p align="center">
+			"Select a CSV file of Applications: "
+			<input id="csv" type="file" accept=".csv"/>
+			<!-- onchange="angular.element(this).scope().loadApplications(this.files)" -->
+			<b>Adds Applications to the database</b>
+	</p>
+
+	<p align="center">
+			"Select a CSV file of Schools: "
+			<input id="csv" type="file" accept=".csv"/>
+			<!-- onchange="angular.element(this).scope().loadSchools(this.files)" -->
+			<b>Adds Schools to the database</b>
+	</p>
+
+	<p align="center">
+			"Select a CSV file of Supermarkets: "
+			<input id="csv" type="file" accept=".csv"/>
+			<!-- onchange="angular.element(this).scope().loadSupermarkets(this.files)" -->
+			<b>Adds Supermarkets to the database</b>
+	</p>
+
+	<p align="center">
+			"Select a CSV file of GPs: "
+			<input id="csv" type="file" accept=".csv"/>
+			<!-- onchange="angular.element(this).scope().loadGPs(this.files)" -->
+			<b>Adds GPs to the database</b>
+	</p>
+
+
+</div>
+
+</div>

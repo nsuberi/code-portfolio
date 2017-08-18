@@ -1,0 +1,108 @@
+<!-- gallery.html -->
+<div id='legend'><img src="./img/Legend.png" style="height:400px; width:130px"/></div>
+<div id='map'></div>
+
+<style>
+     /* Needed for hiding crollbars when pushing */
+     html {
+         overflow-x: hidden;
+     }
+     .ng-pageslide {
+         background: #eee;
+         overflow: scroll;
+     }
+     body.ng-pageslide-body-open::before {
+         content: '.';
+         display: block;
+         position: absolute;
+         top: 0;
+         background-color: rgb(0,0,0);
+         left: 0;
+         right: 0;
+         bottom: 0;
+         z-index: 100;
+         opacity: 0.5;
+         transition: opacity 1s;
+     }
+     body.ng-pageslide-body-closed::before {
+         transition: opacity 1s;
+         opacity: 0;
+         content: '.';
+         display: block;
+         position: absolute;
+         top: 0;
+         background-color: rgb(0,0,0);
+         left: 0;
+         right: 0;
+         bottom: 0;
+         z-index: 100;
+         pointer-events: none;
+     }
+
+     #sidebar{
+       padding:10px;
+     }
+
+ </style>
+
+
+<div pageslide ps-open="checked"
+ps-click-outside="false"
+ps-auto-close="false"
+ps-size="430px"
+>
+<div style="padding:10px">
+<div class="sidebar" style ="padding:10px; background-color:white">
+  <!-- Header -->
+  <div id="pageSlideHeader">
+      <div ng-include="'header.html'"> </div>
+  </div>
+  <!-- Non Cluster Display -->
+  <div ng-if="selectedType !== 'Cluster'">
+    <!-- Tabs
+    <ul>
+        <li ng-repeat="tab in tabs"
+            class="nav nav-tabs nav-justified" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}"
+            ng-class="{active:isActiveTab(tab.url)}"
+            ng-click="onClickTab(tab)">{{tab.title}}</li>
+    </ul>-->
+
+    <ul class="nav nav-tabs nav-justified" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}" ng-transclude="">
+        <li ng-class="{active:isActiveTab(tabs[0])}"  heading="Pressure Data" class="ng-isolate-scope">
+        <a href="" ng-click="onClickTab(tabs[0])" tab-heading-transclude="" class="ng-binding">Pressure Data</a>
+        </li>
+        <li ng-class="{active:isActiveTab(tabs[1])}" heading="Site Info" class="ng-isolate-scope">
+          <a href="" ng-click="onClickTab(tabs[1])" tab-heading-transclude="" class="ng-binding">Site Info</a>
+        </li>
+    </ul>
+
+    <!-- Tab Body -->
+    <div id="mainView">
+        <div ng-include="currentTab"> </div>
+    </div>
+
+  </div>
+  <!-- Cluster Display -->
+  <div ng-if="selectedType === 'Cluster'">
+      <div ng-include="'siteInfoTab.html'">
+      </div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<!-- http://teropa.info/blog/2015/06/09/transclusion.html
+See here for an introduction to transclution and ngIf
+Use to recreate: http://www.umgebungsanalyse.ch/#/
+
+Isolate scopes explained: http://codetunnel.io/isolate-scopes-explained/
+
+Discussion on templates: https://lostechies.com/gabrielschenker/2013/12/28/angularjspart-6-templates/
+
+-->
